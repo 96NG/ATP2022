@@ -1,0 +1,85 @@
+import random
+
+print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+list = []
+ind = int(input("Introduza o número:"))
+
+while ind != 0:
+    if ind ==1:
+        list = []
+        N = int(input("Introduza o número de elementos da lista:"))
+        i=0
+        while i < N:
+            num = random.randrange(1,101)
+            list.append(num)
+            i += 1
+        print(list)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==2:
+        list =[]
+        N = int(input("Introduza o número de elementos da lista"))
+        i = 0
+        while i <N:
+            num = int(input("Introduza o elemento" + str(i) + ":"))
+            list.append(num)
+            i +=1
+        print (list)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==3:
+        soma=0
+        for i in list:
+            soma +=i
+        print (soma)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==4:
+        soma=0
+        for i in list:
+            soma +=i
+            media= soma//len(list)
+        print(media)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==5:
+        maior=list[0]
+        for i in list:
+            if i > maior:
+                maior = i
+        print(maior)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==6:
+        menor=list[0]
+        for i in list:
+            if i < menor:
+                menor = i
+        print(menor)
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind ==7:
+        newList= list.copy()
+        newList.sort()
+        if list == newList:
+            print("Sim")
+        else:
+            print("Não")
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==8:
+        newList=list.copy()
+        newList.sort(reverse=True)
+        if list == newList:
+            print("Sim")
+        else:
+            print("Não")
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    elif ind==9:
+        def procurar():
+            n = int(input("Introduza o elemento:"))
+            if n in list:
+                index= list.index(n)
+                print("Está na posição" + index)
+            else:
+                print("Não está!")
+        procurar()
+        print("(1) Criar Lista \n(2) Ler Lista \n(3) Soma \n(4) Média \n(5) Maior \n(6) Menor \n(7) Ordenada por ordem crescente \n(8) Ordenada por ordem decrescente \n(9)Procura um elemento \n(0) Sair")
+    ind = int(input("Introduza o número:"))
+    
+if ind ==0:
+    print(list)
+    print("Bye")
