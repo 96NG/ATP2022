@@ -1,0 +1,83 @@
+def inserirSala(cinema, s):
+    nlugares = int(input("Introduza o nlugares:"))
+    vendidos = []
+    filme = input("Introduza o nome do filme:")
+    if s not in cinema:
+        cinema.append((nlugares, vendidos, filme))
+    return cinema
+
+def listar(cinema):
+    print("NSala NLugares Disponíveis")
+    print("-----------------------------")
+    for s in cinema:
+        nlugares, vendidos, filme = s
+        print(filme, nlugares, nlugares - len(vendidos))
+    return cinema
+
+def disponivel(cinema, nfilme, lugar):
+    res = True
+    for s in cinema:
+        nlugares, vendidos, filme = s
+        if nfilme==filme:
+            if lugar in vendidos:
+                res = False
+    return res
+
+def vendebilhete(cinema, nfilme, lugar):
+    if disponivel(cinema, nfilme, lugar):
+        for s in cinema:
+            nlugares, vendidos, filme = s
+            if nfilme==filme:
+                vendidos.append(lugar)
+    return cinema
+
+def listardisponibilidades(cinema):
+    for s in cinema:
+        nlugares, vendidos, filme = s
+        print(filme, nlugares - len(vendidos))
+    return cinema
+    
+    def menu1():
+    print("""
+          (1)Inserir uma nova sala
+          (2)Listar Filmes em exibição
+          (3)Verificar lugares disponíveis
+          (4)Comprar bilhete
+          (5)Listar disponibilidades
+          (0)Sair
+          """)
+cinema = []
+s1 = (150, [], "Twilight")
+s2 = (200, [], "Hannibal")
+
+cinema = inserirSala (cinema, s1)
+cinema = inserirSala (cinema, s2)
+
+listar(cinema)
+print(cinema)
+print(disponivel(cinema, "Twilight", 17))
+if (disponivel(cinema, "Twilight", 17)):
+    cinema = vendebilhete(cinema, "Twilight", 17)
+listardisponibilidades(cinema)
+print(cinema[0])
+
+
+opcao=1
+while opcao != 0:
+    menu1()
+    opcao= int(input("Introduza uma opcao:"))
+    if opcao==1:
+        s = input("introduza o nome da sala:")
+        inserirSala(cinema, s)
+    elif opcao==2:
+        listar(cinema)
+    elif opcao==3:
+        nfilme = input("Introduza o nome do filme:")
+        lugar = int(input("Introduza o numero do lugar:"))
+        disponivel(cinema, nfilme, lugar)
+    elif opcao==4:
+        nfilme= input ("Introduza o nome do filme:")
+        lugar = int(input ("Introduza o lugar:"))
+        vendebilhete(cinema, nfilme, lugar)
+    elif opcao==5:
+        listardisponibilidades(cinema)
