@@ -1,0 +1,99 @@
+import csv
+
+def readDataset(fnome):
+    f = open(fnome)
+    f.readline()
+    csv_reader = csv.reader(f, delimiter=";")
+    obras = []
+    for row in csv_reader:
+        obras.append(tuple(row))
+
+    return obras
+    
+    myObras = obras.readDataset("./obras.csv")
+    print(len(myObras))
+    
+   def prtp(obras):
+    print(f'{obras[0][:30]:30} | {obras[1][:70]:70} | {obras[2][:4]:4} | {obras[4][:30]:30}')
+
+for i in range(1,174):
+    prtp(myObras[i])
+    
+    def ordTit(t):
+    return t[0]
+
+def titAno(obras):
+    res = []
+    for nome, _, ano, *_ in obras:
+        res.append((nome, ano))
+    res.sort(key=ordTit)
+    return res
+   
+   def ordAno(n):
+    return n[1]
+
+def Anotit(obras):
+    res =[]
+    for nome, _, ano, *_ in obras:
+        res.append((nome,ano))
+    res.sort(key=ordAno)
+    return res
+
+Anotit(myObras)
+
+def titPorAno(obras):
+    res = {}
+    for nome, _, ano, *_ in obras:
+        if ano in res.keys():
+            res[ano].append(nome)
+        else:
+            res[ano] = [nome]
+    return res
+    
+   titulosPorAno = titPorAno(myObras)
+print(titulosPorAno)
+
+def ordCompos(obras):
+    res=[]
+    for _,_,_,_, compositor,*_ in obras:
+        res.append(compositor)
+    res.sort()
+    return res
+
+print(ordCompos(myObras))
+
+def titPorAno(obras):
+    res = {}
+    for _, _, ano, *_ in obras:
+        if ano in res.keys():
+            res[ano]= res[ano] + 1
+        else:
+            res[ano] = 1
+    return res
+
+titPorAno(myObras)
+
+def titPorPeriod(obras):
+    res={}
+    for _,_,_,periodo, *_ in obras:
+        if periodo in res.keys():
+            res[periodo] = res[periodo] + 1
+        else:
+            res[periodo] = 1
+    return res
+
+print(titPorPeriod(myObras))
+
+
+def titporCompos(obras):
+    res={}
+    for _,_,_,_,compositor, *_ in obras:
+        if compositor in res.keys():
+            res[compositor] = res[compositor] + 1
+        else:
+            res[compositor] = 1
+    return res
+
+print(titporCompos(myObras))
+
+
