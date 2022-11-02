@@ -1,0 +1,38 @@
+def readFicheiro(nome):
+    f = open(nome)
+    f.readline()
+    csv_reader = csv.reader(f, delimiter = ",")
+    mh = []
+    for row in csv_reader:
+        mh.append(tuple(row))
+    return mh  
+
+mh = readFicheiro("./myheart.csv")
+print(len(mh))
+print(mh[0])
+print(mh[1])
+
+
+def temDoenca(mh):
+    l= []
+    for idade, sexo, _, colesterol, _, temDoenca in mh:
+        if temDoenca=="1":
+            l.append((idade, sexo, colesterol, temDoenca))
+    return l
+
+doenca = temDoenca(mh)
+
+
+def doencaSexo(doenca):
+    distrib = {}
+    for _, sexo, *_ in doenca:
+        if sexo in distrib.keys():
+            distrib[sexo] = distrib[sexo] +1
+        else:
+            distrib[sexo] = 1
+    return distrib
+        
+doencaSexo(doenca)
+
+
+
