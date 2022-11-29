@@ -1,0 +1,32 @@
+import csv
+
+def readDataset(ficheiro):
+    f = open(ficheiro)
+    f.readline()
+    csv_reader = csv.reader(f, delimiter=",")
+    alunos =[]
+    for row in csv_reader:
+        alunos.append(tuple(row))
+    return alunos
+
+myAlunos = readDataset("alunos.csv")
+print(myAlunos[0])
+
+def alunosCurso(aluno):
+    distrib={}
+    for _,_,curso,*_ in aluno:
+        if curso in distrib.keys():
+            distrib[curso] = distrib[curso] + 1
+        else:
+            distrib[curso] = 1
+    return distrib
+
+alunosCurso(myAlunos)
+
+def calcMédia(aluno):
+    média=[]
+    for _,_,_,tpc1,tpc2,tpc3,tpc4 in aluno:
+        média.append((int(tpc1)+int(tpc2)+int(tpc3)+int(tpc4))/4)
+    return média
+
+calcMédia(myAlunos)
