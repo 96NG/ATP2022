@@ -82,7 +82,12 @@ for i in range (110, 620, 10):
     temp = i+1
 print(distrib)
 
+def pp (distrib):
+    print (f'{"TABELA DE DISTRIBUIÇÃO"}')
+    for i in distrib.items():
+        print(f'{i[0][:10]:10} | {str(i[1])[:10]:10}')
 
+pp(distrib)
 
 
 
