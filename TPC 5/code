@@ -35,50 +35,54 @@ def doencaSexo(doenca):
 doencaSexo(doenca)
 
 
-def doencaIdade(doenca):
-    distrib = {}
+def idadeDoenca(doenca):
+    lista = []
     for idade, *_ in doenca:
-        if idade in distrib.keys():
-            distrib[idade] = distrib[idade] + 1
-        else:
-            distrib[idade] = 1
-    return distrib
+        lista.append(idade)
+    return lista
 
-escaloes = doencaIdade(doenca)
+print(idadeDoenca(doenca))
 
-l = {'escalao1': escaloes['31'] + escaloes ['32'] + escaloes['33'] + escaloes['34'] + escaloes['35']}
-l0 = {'escalao2': escaloes['36'] + escaloes ['37'] + escaloes ['38'] + escaloes['39'] + escaloes['40']}
-l1 = {'escalao3': escaloes['41'] + escaloes['42'] + escaloes['43'] + escaloes['44'] + escaloes['45']}
-l2 = {'escalao4': escaloes['46'] + escaloes ['47'] + escaloes['48'] + escaloes['49'] + escaloes['50']}
-l3 = {'escalao5': escaloes['51'] + escaloes['52'] + escaloes['53'] + escaloes['54'] + escaloes['55']}
-l4 = {'escalao6': escaloes['56'] + escaloes['57'] + escaloes['58'] + escaloes['59'] + escaloes['60']}
-l5 = {'escalao7': escaloes['61'] + escaloes['62'] + escaloes['63'] + escaloes['64'] + escaloes['65']}
-l6 = {'escalao8': escaloes['66'] + escaloes['67'] + escaloes['68'] + escaloes['69'] + escaloes['70']}
-l7 = {'escalao9': escaloes['71'] + escaloes['72'] + escaloes['73'] + escaloes['74'] + escaloes['75']}
-l8 = {'escalao10': escaloes['76'] + escaloes['77']}
-
+lista = idadeDoenca(doenca)
+    
 distrib = {}
-for par in (l, l0, l1, l2, l3, l4, l5, l6, l7, l8): distrib.update(par)
+temp = 30
+for i in range (35, 85, 5):
+    chave = str(temp) + "-" + str(i)
+    distrib[chave] = 0
+    
+    for j in lista:
+        if int(j)>= temp and int(j)<=i:
+            distrib[chave] +=1
+
+    temp = i+1
 print(distrib)
 
-def doencaColesterol(doenca):
-    distrib = {}
-    for _,_,colesterol, *_ in doenca:
-        if colesterol in distrib.keys():
-            distrib[colesterol] = distrib[colesterol] +1 
-        else:
-            distrib[colesterol] = 1
-    return distrib
+def colesterolDoenca(doenca):
+    colis = []
+    for _,_, colesterol, *_ in doenca:
+        colis.append(colesterol)
+    
+    return colis
 
-níveis = doencaColesterol(doenca)
+colesterolDoenca(doenca)
 
-nivel1 = {'nivel1': níveis['180'] + níveis['182'] + níveis['184'] + níveis['188'] + níveis['190'] + níveis['192'] + níveis['193'] + níveis['195'] + níveis['196'] + níveis['197'] + níveis['198'] + níveis['200'] + níveis['201'] + níveis['202'] + níveis['203'] + níveis['204'] + níveis['205'] + níveis['206'] + níveis['207'] + níveis['208'] + níveis['210'] + níveis['211'] + níveis['212'] + níveis['213'] + níveis['214'] + níveis['216'] + níveis['217'] + níveis['218'] + níveis['219'] + níveis['220'] + níveis['221'] + níveis['222'] + níveis['223'] + níveis['224'] + níveis['225'] + níveis['226'] + níveis['228'] + níveis['229'] + níveis['230'] + níveis['231'] + níveis['232'] + níveis ['233'] + níveis['234'] + níveis['235'] + níveis['236'] + níveis ['237'] + níveis['239']}
-nivel2 = {'nivel2': níveis['241'] + níveis['242']+ níveis['243'] + níveis['244'] + níveis['245'] + níveis['246'] + níveis['247'] + níveis['248'] + níveis['249'] + níveis['252'] + níveis['254'] + níveis['255'] + níveis['256'] + níveis['257'] + níveis['258'] + níveis['259'] + níveis['260'] + níveis['261'] + níveis['263'] + níveis['264'] + níveis['265'] + níveis['266'] + níveis['267'] + níveis['268'] + níveis['269'] + níveis['270'] + níveis['272'] + níveis['273'] + níveis['274'] + níveis['275'] + níveis['276'] + níveis['277'] + níveis['279'] + níveis['280'] + níveis['281'] + níveis['282'] + níveis['283'] + níveis['284'] + níveis['285'] + níveis['289'] + níveis['290'] + níveis['291'] + níveis['292'] + níveis['293'] + níveis['294'] + níveis['295'] + níveis ['297'] + níveis['298'] + níveis['299']}
-nivel3 ={'nivel3': níveis['300'] + níveis['303'] + níveis['304']}
-
+lista = colesterolDoenca(doenca)
+    
 distrib = {}
-for par in (nivel1, nivel2, nivel3): distrib.update(par)
+temp = 100
+for i in range (110, 620, 10):
+    chave = str(temp) + "-" + str(i)
+    distrib[chave] = 0
+    
+    for j in lista:
+        if int(j)>= temp and int(j)<=i:
+            distrib[chave] +=1
+
+    temp = i+1
 print(distrib)
+
+
 
 
 
