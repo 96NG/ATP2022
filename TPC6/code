@@ -134,4 +134,14 @@ def obrasComp(obras):
 
 obrasComp(obra)
 
+def obraCompositor (obras):
+    distrib = {}
+    for _, compositor in obras:
+        if compositor in distrib.keys():
+            distrib[compositor] = distrib[compositor] + 1
+        else:
+            distrib[compositor] = 1
+    return distrib
+
+print(obraCompositor(obra))
 
